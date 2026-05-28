@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  #root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-card text-card-foreground border border-border rounded-lg;
+  }
+
+  .panel-header {
+    @apply flex items-center justify-between px-4 py-2 border-b border-border bg-muted/30 rounded-t-lg;
+  }
+
+  .panel-title {
+    font-size: var(--ui-font-size, 13px);
+    @apply font-semibold text-muted-foreground uppercase tracking-wider select-none;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground px-4 py-2 text-sm font-medium transition-colors hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-secondary text-secondary-foreground px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary/80 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .btn-icon {
+    @apply inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .input-field {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  .label {
+    @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+  }
+
+  .divider {
+    @apply border-t border-border my-2;
+  }
+
+  .resize-handle {
+    @apply w-1 cursor-col-resize bg-border hover:bg-primary/50 transition-colors flex-shrink-0;
+  }
+
+  .resize-handle-horizontal {
+    @apply h-1 cursor-row-resize bg-border hover:bg-primary/50 transition-colors flex-shrink-0;
+  }
+
+  .sidebar-item {
+    font-size: var(--ui-font-size, 13px);
+    @apply flex items-center gap-2 px-3 py-1.5 rounded-md cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .sidebar-item.active {
+    @apply bg-primary/10 text-primary font-medium;
+  }
+
+  .toolbar {
+    @apply flex items-center gap-1 px-3 py-1.5 border-b border-border bg-card;
+  }
+
+  .statusbar {
+    font-size: var(--ui-font-size, 13px);
+    @apply flex items-center justify-between px-4 py-0.5 border-t border-border bg-muted/30 text-muted-foreground;
+  }
+
+  .log-line {
+    font-size: var(--ui-font-size, 13px);
+    @apply font-mono leading-5 select-text;
+  }
+
+  .log-line.info {
+    @apply text-foreground/80;
+  }
+
+  .log-line.warn {
+    @apply text-yellow-400;
+  }
+
+  .log-line.error {
+    @apply text-red-400;
+  }
+
+  .log-line.debug {
+    @apply text-muted-foreground;
+  }
+}
+
+/* Toast UI Editor overrides */
+.toastui-editor-defaultUI {
+  border: none !important;
+}
+
+.toastui-editor-defaultUI-toolbar {
+  background: hsl(var(--muted)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+.toastui-editor-mode-switch {
+  background: hsl(var(--muted)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+.dark .toastui-editor-defaultUI {
+  background: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.dark .toastui-editor-defaultUI-toolbar {
+  background: hsl(var(--muted)) !important;
+}
+
+.dark .toastui-editor-contents {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}

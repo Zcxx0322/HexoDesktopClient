@@ -1,0 +1,62 @@
+appId: com.hexo.desktop-client
+productName: Hexo Desktop Client
+copyright: Copyright © 2024 HexoDesktopClient
+
+directories:
+  output: release
+  buildResources: resources
+
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - resources/**/*
+
+extraResources:
+  - from: resources/
+    to: resources/
+    filter:
+      - "**/*"
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: resources/icon.png
+  artifactName: "${productName}-${version}-Setup-${arch}.${ext}"
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Hexo Desktop Client
+  installerIcon: resources/icon.ico
+  uninstallerIcon: resources/icon.ico
+  installerHeaderIcon: resources/icon.ico
+
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+  icon: resources/icon.png
+  category: Office
+  artifactName: "${productName}-${version}-${arch}.${ext}"
+  synopsis: "Hexo Desktop Blog Client"
+  description: "A desktop client for managing Hexo blogs with visual editing and one-click deployment."
+
+mac:
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+  icon: resources/icon.png
+  category: public.app-category.productivity
+  artifactName: "${productName}-${version}-${arch}.${ext}"
+
+publish:
+  provider: github
+  owner: your-org
+  repo: hexo-desktop-client
