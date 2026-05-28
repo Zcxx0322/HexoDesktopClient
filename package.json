@@ -1,6 +1,6 @@
 {
   "name": "hexo-desktop-client",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A desktop client for Hexo blog management - write, preview, and deploy with ease",
   "main": "dist-electron/main.js",
   "author": "HexoDesktopClient Team",
@@ -118,19 +118,6 @@
       "icon": "resources/icon.png",
       "category": "Office",
       "artifactName": "${productName}-${version}-${arch}.${ext}"
-    },
-    "mac": {
-      "target": [
-        {
-          "target": "dmg",
-          "arch": [
-            "x64",
-            "arm64"
-          ]
-        }
-      ],
-      "icon": "resources/icon.png",
-      "category": "public.app-category.productivity"
     },
     "publish": {
       "provider": "github",
