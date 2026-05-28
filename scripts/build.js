@@ -49,12 +49,17 @@ async function build() {
 
   // Step 1: Clean
   log('Cleaning previous build artifacts...');
-  [DIST, DIST_ELECTRON, RELEASE].forEach((dir) => {
+  [DIST, DIST_ELECTRON].forEach((dir) => {
     if (fs.existsSync(dir)) {
       fs.rmSync(dir, { recursive: true, force: true });
       log(`  Removed: ${path.relative(ROOT, dir)}`);
     }
   });
+  // Clean release only if building for all platforms (not single target)
+  if (target === 'all' && fs.existsSync(RELEASE)) {
+    fs.rmSync(RELEASE, { recursive: true, force: true });
+    log(`  Removed: ${path.relative(ROOT, RELEASE)}`);
+  }
 
   // Step 2: Install dependencies (if needed)
   if (!fs.existsSync(path.join(ROOT, 'node_modules'))) {
