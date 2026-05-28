@@ -19,7 +19,7 @@ A modern desktop client for [Hexo](https://hexo.io/) blogs. Write, preview, conf
 
 ## Screenshots
 
-*Coming soon*
+![Hexo Desktop Client](screenshots/ScreenShot.png)
 
 ## System Requirements
 

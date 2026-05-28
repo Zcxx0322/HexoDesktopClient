@@ -19,7 +19,7 @@
 
 ## 截图
 
-*Coming soon*
+![Hexo Desktop Client](screenshots/ScreenShot.png)
 
 ## 系统要求
 
