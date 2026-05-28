@@ -31,17 +31,17 @@
 
 ## 下载
 
-从 [GitHub Releases](https://github.com/your-org/hexo-desktop-client/releases) 下载最新版本。
+从 [GitHub Releases](https://github.com/Zcxx0322/HexoDesktopClient/releases) 下载最新版本。
 
-- **Windows**：`Hexo Desktop Client-1.0.0-Setup-x64.exe`
-- **Linux**：`Hexo Desktop Client-1.0.0-x86_64.AppImage` 或 `tar.gz`
+- **Windows**：`Hexo Desktop Client-1.0.1-Setup-x64.exe`
+- **Linux**：`Hexo Desktop Client-1.0.1-x64.tar.gz`
 
 ## 快速开始
 
 ### 开发模式
 
 ```bash
-git clone https://github.com/your-org/hexo-desktop-client.git
+git clone https://github.com/Zcxx0322/HexoDesktopClient.git
 cd hexo-desktop-client
 npm install
 npm run electron:dev
