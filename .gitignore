@@ -46,3 +46,5 @@ npm-debug.log*
 # Misc
 *.7z
 *.zip
+src/shared/*.js
+src/shared/*.js.map
